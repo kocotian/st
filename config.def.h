@@ -141,8 +141,8 @@ static const char **colorname;
  */
 unsigned int defaultfg = 15;
 unsigned int defaultbg = 0;
-unsigned int defaultcs = 256;
-unsigned int defaultrcs = 257;
+unsigned int defaultcs = 15;
+unsigned int defaultrcs = 8;
 
 /*
  * Default shape of cursor
