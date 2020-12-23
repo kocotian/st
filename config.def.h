@@ -220,6 +220,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,     XK_F7,          setpalette,     {.i =  6} },
 	{ MODKEY|ShiftMask,     XK_F8,          setpalette,     {.i =  7} },
 	{ MODKEY|ShiftMask,     XK_F9,          setpalette,     {.i =  8} },
+	{ MODKEY|ShiftMask,     XK_Return,      newterm,        {.i =  0} },
 };
 
 /*
