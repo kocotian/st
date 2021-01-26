@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "monospace:pixelsize=14:antialias=true:autohint=true";
-static int borderpx = 12;
+int borderpx = 12;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -74,10 +74,10 @@ static unsigned int cursorthickness = 2;
  * 0: disable (render all U25XX glyphs normally from the font).
  */
 const int boxdraw = 1;
-const int boxdraw_bold = 0;
+const int boxdraw_bold = 1;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
-const int boxdraw_braille = 1;
+const int boxdraw_braille = 0;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -117,6 +117,14 @@ static const char *palettes[][16] = {
 	/* gruvbox light */
 	{"#fbf1c7", "#cc241d", "#98971a", "#d79921", "#458588", "#b16286", "#689d6a", "#7c6f64",
 	"#928374", "#9d0006", "#79740e", "#b57614", "#076678", "#8f3f71", "#427b58", "#282828"},
+
+	/* gruvbox saturated */
+	{"#000000", "#d30b00", "#999700", "#dc9700", "#3b8689", "#b65f87", "#629e65", "#a99981",
+	"#938372", "#ff3c17", "#b8bc00", "#ffbc00", "#80a697", "#d8839b", "#89c174", "#eddbac"},
+
+	/* gruvbox black-white */
+	{"#000000", "#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2",
+	"#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2", "#ebdbb2"},
 
 	/* solarized dark */
 	{"#073642", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#eee8d5",
@@ -220,18 +228,18 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_F1,          setpalette,     {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_F2,          setpalette,     {.i =  1} },
-	{ MODKEY|ShiftMask,     XK_F3,          setpalette,     {.i =  2} },
-	{ MODKEY|ShiftMask,     XK_F4,          setpalette,     {.i =  3} },
-	{ MODKEY|ShiftMask,     XK_F5,          setpalette,     {.i =  4} },
-	{ MODKEY|ShiftMask,     XK_F6,          setpalette,     {.i =  5} },
-	{ MODKEY|ShiftMask,     XK_F7,          setpalette,     {.i =  6} },
-	{ MODKEY|ShiftMask,     XK_F8,          setpalette,     {.i =  7} },
-	{ MODKEY|ShiftMask,     XK_F9,          setpalette,     {.i =  8} },
-	{ MODKEY|ShiftMask,     XK_Return,      newterm,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ TERMMOD,              XK_F1,          setpalette,     {.i =  0} },
+	{ TERMMOD,              XK_F2,          setpalette,     {.i =  1} },
+	{ TERMMOD,              XK_F3,          setpalette,     {.i =  2} },
+	{ TERMMOD,              XK_F4,          setpalette,     {.i =  3} },
+	{ TERMMOD,              XK_F5,          setpalette,     {.i =  4} },
+	{ TERMMOD,              XK_F6,          setpalette,     {.i =  5} },
+	{ TERMMOD,              XK_F7,          setpalette,     {.i =  6} },
+	{ TERMMOD,              XK_F8,          setpalette,     {.i =  7} },
+	{ TERMMOD,              XK_F9,          setpalette,     {.i =  8} },
+	{ TERMMOD,              XK_Return,      newterm,        {.i =  0} },
+	{ MODKEY|ControlMask,   XK_k,           kscrollup,      {.i =  1} },
+	{ MODKEY|ControlMask,   XK_j,           kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_semicolon,   externalpipe,   {.v = copyurlcmd } },
 	{ TERMMOD,              XK_semicolon,   externalpipe,   {.v = openurlcmd } },
 	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
