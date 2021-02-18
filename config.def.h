@@ -247,6 +247,10 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_semicolon,   externalpipe,   {.v = copyurlcmd } },
 	{ TERMMOD,              XK_semicolon,   externalpipe,   {.v = openurlcmd } },
 	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
+	{ MODKEY,               XK_h,           ttysend,        {.s = "\033[D"} },
+	{ MODKEY,               XK_j,           ttysend,        {.s = "\033[B"} },
+	{ MODKEY,               XK_k,           ttysend,        {.s = "\033[A"} },
+	{ MODKEY,               XK_l,           ttysend,        {.s = "\033[C"} },
 };
 
 /*
